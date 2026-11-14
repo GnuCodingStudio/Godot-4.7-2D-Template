@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://c42l2ulswwvh2"]
 
+[ext_resource type="Script" uid="uid://dp42yatjw45ca" path="res://scenes/levels/Level001.gd" id="1_haoqb"]
 [ext_resource type="PackedScene" uid="uid://b1jimh7w0a3n7" path="res://scenes/console/GameConsole.tscn" id="1_kta4a"]
+[ext_resource type="PackedScene" uid="uid://ckdgdo4aq6h5l" path="res://scenes/console/command/Command.tscn" id="2_3tikf"]
 [ext_resource type="PackedScene" uid="uid://bsfyypyhwfbs5" path="res://objects/actors/player/Player.tscn" id="2_7o1wq"]
 
 [node name="Level001" type="Node2D" unique_id=1270938578]
+script = ExtResource("1_haoqb")
 
 [node name="GameConsole" parent="." unique_id=467864661 instance=ExtResource("1_kta4a")]
 visible = false
+
+[node name="hello" parent="GameConsole" unique_id=415818315 node_paths=PackedStringArray("target") instance=ExtResource("2_3tikf")]
+target = NodePath("../..")
+function = "_command_hello"
+help = "Just log a hello world message."
+parameters = Array[String](["target:string:world"])
 
 [node name="Player" parent="." unique_id=1384386098 instance=ExtResource("2_7o1wq")]
 position = Vector2(222.90457, 143.25392)
