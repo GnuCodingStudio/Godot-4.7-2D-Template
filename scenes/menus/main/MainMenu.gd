@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	print("Start button clicked")
+	SceneTransition.change_scene("res://scenes/levels/Level001.tscn")
 
 
 func _on_settings_button_pressed() -> void:
