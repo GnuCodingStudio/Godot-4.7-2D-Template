@@ -2,7 +2,9 @@ class_name GameConsole
 extends CanvasLayer
 
 ## Generate help command automatically.
-@export var auto_help: bool
+@export var auto_help: bool = false
+## Start the console by listing the available commands.
+@export var list_commands: bool = false
 
 @onready var input: LineEdit = %Input
 @onready var log_field: RichTextLabel = %Log
@@ -24,7 +26,8 @@ func _ready() -> void:
 	if needs_help:
 		_commands.push_front(_create_help())
 
-	log_info("Listed commands: %s" % _commands_as_string())
+	if list_commands:
+		log_info("Listed commands: %s" % _commands_as_string())
 
 
 func _input(_event: InputEvent) -> void:
